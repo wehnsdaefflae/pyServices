@@ -1,14 +1,20 @@
+import json
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 # https://dzone.com/articles/taking-browser-screenshots-no
+# $ sudo apt-get install python-pip xvfb xserver-xephyr
+# $ sudo pip install selenium
 from pyvirtualdisplay import Display
 
-with open("fritz_pw.txt", mode="r") as file:
-    line = file.readline()
-    password = line.strip()
+with open("fritz_pw.json", mode="r") as file:
+    config = json.load(file)
+
+password = config["password"]
+driver_path = config["driver_path"]
 
 display = Display(visible=0, size=(800, 600))
 display.start()
@@ -18,7 +24,7 @@ options.add_argument("start-maximized")
 options.add_argument('disable-infobars')
 
 # https://github.com/mozilla/geckodriver/releases
-browser = webdriver.Firefox(executable_path=r"D:/Eigene Dateien/Downloads/geckodriver.exe")
+browser = webdriver.Firefox(executable_path=driver_path)
 
 browser.get("http://fritz.box/?sid=8e06fe6c834e1533&lp=dslSpec")
 
