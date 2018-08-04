@@ -19,12 +19,14 @@ driver_path = config["driver_path"]
 display = Display(visible=0, size=(800, 600))
 display.start()
 
-options = webdriver.FirefoxOptions()
+# options = webdriver.FirefoxOptions()
+options = webdriver.ChromeOptions()
 options.add_argument("start-maximized")
 options.add_argument('disable-infobars')
 
 # https://github.com/mozilla/geckodriver/releases
-browser = webdriver.Firefox(executable_path=driver_path)
+# browser = webdriver.Firefox(executable_path=driver_path)
+browser = webdriver.Chrome(executable_path=driver_path)
 
 browser.get("http://fritz.box/?sid=8e06fe6c834e1533&lp=dslSpec")
 
