@@ -63,7 +63,12 @@ def make_screenshot(file_name):
     dir_path = "screenshots/"
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
-    save_spectrum(dir_path + file_name)
+    try:
+        save_spectrum(dir_path + file_name)
+    except Exception as e:
+        with open("exceptions.log", mode="a") as file:
+            file.write("screenshot:\n")
+            file.write(str(e) + "\n")
 
 
 def main():
@@ -88,19 +93,19 @@ def main():
             offline_start = datetime.datetime.now()
             print("{:s}: offline".format(offline_start.strftime("%Y-%m-%d %H:%M:%S")))
 
-            make_screenshot(offline_start.strftime("%Y-%m-%d_%H-%M-%S") + ".png")
+            make_screenshot(offline_start.strftime("%Y-%m-%d_%H-%M-%S") + "_offline_start.png")
 
         elif offline_start is not None and is_online:
-            now = datetime.datetime.now()
-            print("{:s}: online".format(now.strftime("%Y-%m-%d %H:%M:%S")))
-            span = now - offline_start
+            offline_end = datetime.datetime.now()
+            print("{:s}: online".format(offline_end.strftime("%Y-%m-%d %H:%M:%S")))
+            span = offline_end - offline_start
 
             if 10 < span.seconds:
-                row = [offline_start.strftime("%Y-%m-%d %H:%M:%S"), now.strftime("%Y-%m-%d %H:%M:%S")]
+                row = [offline_start.strftime("%Y-%m-%d %H:%M:%S"), offline_end.strftime("%Y-%m-%d %H:%M:%S")]
                 with open(file_path, mode="a") as file:
                     file.write("\t".join(row) + "\n")
 
-                make_screenshot(offline_start.strftime("%Y-%m-%d_%H-%M-%S") + ".png")
+                make_screenshot(offline_end.strftime("%Y-%m-%d_%H-%M-%S") + "_offline_end.png")
 
             offline_start = None
 
