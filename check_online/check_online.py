@@ -88,7 +88,7 @@ def main():
             offline_start = datetime.datetime.now()
             print("{:s}: offline".format(offline_start.strftime("%Y-%m-%d %H:%M:%S")))
 
-            make_screenshot(offline_start.strftime("%Y-%m-%d_%H:%M:%S") + ".png")
+            make_screenshot(offline_start.strftime("%Y-%m-%d_%H-%M-%S") + ".png")
 
         elif offline_start is not None and is_online:
             now = datetime.datetime.now()
@@ -100,7 +100,7 @@ def main():
                 with open(file_path, mode="a") as file:
                     file.write("\t".join(row) + "\n")
 
-                make_screenshot(offline_start.strftime("%Y-%m-%d_%H:%M:%S") + ".png")
+                make_screenshot(offline_start.strftime("%Y-%m-%d_%H-%M-%S") + ".png")
 
             offline_start = None
 
