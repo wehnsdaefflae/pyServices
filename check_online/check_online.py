@@ -41,7 +41,8 @@ def save_spectrum(file_path):
 
     options = webdriver.ChromeOptions()
     options.add_argument("start-maximized")
-    options.add_argument('disable-infobars')
+    options.add_argument("disable-infobars")
+    options.add_argument("--no-sandbox")
 
     # https://github.com/mozilla/geckodriver/releases
     browser = webdriver.Chrome(executable_path=driver_path)
