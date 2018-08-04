@@ -6,6 +6,8 @@ import sys
 import time
 from socket import socket, AF_INET, SOCK_STREAM
 
+from website_screenshot.fritzbox_login import save_spectrum
+
 
 def check_online(host, port):
     with socket(AF_INET, SOCK_STREAM) as s:     # Creates socket
@@ -16,6 +18,13 @@ def check_online(host, port):
             return False
 
     return True
+
+
+def make_screenshot(file_name):
+    dir_path = "screenshots/"
+    if not os.path.isdir(dir_path):
+        os.mkdir(dir_path)
+    save_spectrum(dir_path + file_name)
 
 
 def main():
@@ -40,6 +49,8 @@ def main():
             offline_start = datetime.datetime.now()
             print("{:s}: offline".format(offline_start.strftime("%Y-%m-%d %H:%M:%S")))
 
+            make_screenshot(offline_start.strftime("%Y-%m-%d_%H:%M:%S") + ".png")
+
         elif offline_start is not None and is_online:
             now = datetime.datetime.now()
             print("{:s}: online".format(now.strftime("%Y-%m-%d %H:%M:%S")))
@@ -47,9 +58,10 @@ def main():
 
             if 10 < span.seconds:
                 row = [offline_start.strftime("%Y-%m-%d %H:%M:%S"), now.strftime("%Y-%m-%d %H:%M:%S")]
-
                 with open(file_path, mode="a") as file:
                     file.write("\t".join(row) + "\n")
+
+                make_screenshot(offline_start.strftime("%Y-%m-%d_%H:%M:%S") + ".png")
 
             offline_start = None
 
