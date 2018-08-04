@@ -16,7 +16,7 @@ with open("fritz_pw.json", mode="r") as file:
 password = config["password"]
 driver_path = config["driver_path"]
 
-display = Display(visible=0, size=(800, 600))
+display = Display(visible=0, size=(800, 1000))
 display.start()
 
 # options = webdriver.FirefoxOptions()
