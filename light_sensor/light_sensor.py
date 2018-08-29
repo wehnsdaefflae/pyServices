@@ -1,7 +1,7 @@
 import time
 
 import RPi.GPIO as io
-from yeelight import Bulb
+from yeelight import Bulb, BulbException
 
 
 def main():
@@ -13,17 +13,24 @@ def main():
     bulb = Bulb(light_ip)
     bulb.turn_off()
 
-    delay = 60 * 5
+    # delay = 60 * 5
+    delay = 5
     last_activation = -1.
 
     while True:
         if io.input(pin) == 1:
-            last_activation = time.time()
-            bulb.turn_on()
+            try:
+                last_activation = time.time()
+                bulb.turn_on()
+            except BulbException:
+                pass
 
         if last_activation >= 0. and time.time() - last_activation >= delay:
-            last_activation = -1.
-            bulb.turn_off()
+            try:
+                last_activation = -1.
+                bulb.turn_off()
+            except BulbException:
+                pass
 
         time.sleep(.1)
 
