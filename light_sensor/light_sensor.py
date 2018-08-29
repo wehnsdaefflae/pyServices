@@ -11,6 +11,7 @@ def main():
 
     light_ip = "192.168.178.31"
     bulb = Bulb(light_ip)
+    bulb.turn_off()
 
     delay = 60 * 5
     last_activation = -1.
