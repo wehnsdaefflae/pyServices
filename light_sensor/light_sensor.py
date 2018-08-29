@@ -13,8 +13,8 @@ def main():
     bulb = Bulb(light_ip)
     bulb.turn_off()
 
-    # delay = 60 * 5
-    delay = 5
+    delay = 60 * 5
+    # delay = 5
     last_activation = -1.
 
     while True:
