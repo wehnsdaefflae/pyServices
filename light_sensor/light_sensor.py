@@ -15,22 +15,23 @@ def main():
     bulb = Bulb(light_ip)
     bulb.turn_off()
 
-    delay = 60 * 5
+    delay = 60 * 7
     # delay = 5
     last_activation = -1.
 
     while True:
-        if io.input(pin) == 1 and last_activation < 0.:
+        if io.input(pin) == 1:
             try:
+                if last_activation < 0:
+                    bulb.turn_on()
                 last_activation = time.time()
-                bulb.turn_on()
             except BulbException:
                 pass
 
         if last_activation >= 0. and time.time() - last_activation >= delay:
             try:
-                last_activation = -1.
                 bulb.turn_off()
+                last_activation = -1.
             except BulbException:
                 pass
 
