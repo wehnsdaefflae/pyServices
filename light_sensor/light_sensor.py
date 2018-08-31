@@ -20,7 +20,7 @@ def main():
     last_activation = -1.
 
     while True:
-        if io.input(pin) == 1:
+        if io.input(pin) == 1 and last_activation < 0.:
             try:
                 last_activation = time.time()
                 bulb.turn_on()
