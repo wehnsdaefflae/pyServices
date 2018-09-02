@@ -57,7 +57,7 @@ def keep_on():
     bulb = Bulb(light_ip)
     bulb.turn_off()
 
-    delay = 30
+    delay = 30 * 8
     # delay = 5
     last_activation = -1.
 
