@@ -15,13 +15,15 @@ def toggle():
     bulb = Bulb(light_ip)
     bulb.turn_off()
 
+    last_input = -1
     last_toggle = -1.
     cool_down = 10  # seconds
     is_on = False
 
     while True:
         now = time.time()
-        if io.input(pin) == 1 and now - last_toggle >= cool_down:
+        this_input = io.input(pin)
+        if this_input == 1 and last_input == 0:  #  and now - last_toggle >= cool_down:
 
             try:
                 if is_on:
@@ -34,6 +36,7 @@ def toggle():
             except BulbException:
                 pass
 
+        last_input = this_input
         time.sleep(.1)
 
 
