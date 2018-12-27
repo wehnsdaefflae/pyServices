@@ -62,7 +62,9 @@ def keep_on():
     last_activation = -1.
 
     while True:
-        if io.input(pin) == 1:
+        activation = io.input(pin)
+
+        if activation == 1:
             try:
                 if last_activation < 0:
                     bulb.turn_on()
@@ -76,6 +78,8 @@ def keep_on():
                 last_activation = -1.
             except BulbException:
                 pass
+
+        print(activation)
 
         time.sleep(.1)
 
