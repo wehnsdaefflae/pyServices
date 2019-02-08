@@ -2,7 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 from typing import Tuple, Iterable
 
-from poll_websites.src.logger import Logger
+from src.logger import Logger
 
 
 def get_config_directory() -> str:

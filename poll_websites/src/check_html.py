@@ -6,8 +6,8 @@ from urllib.error import HTTPError
 
 from bs4 import BeautifulSoup
 
-from poll_websites.src.config import html_dir, headers
-from poll_websites.src.logger import Logger
+from src.config import html_dir, headers
+from src.logger import Logger
 
 local_dir = "../data/"
 

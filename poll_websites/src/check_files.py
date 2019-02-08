@@ -4,8 +4,8 @@ from typing import List, Iterable
 
 import requests
 
-from poll_websites.src.config import file_dir, headers
-from poll_websites.src.logger import Logger
+from src.config import file_dir, headers
+from src.logger import Logger
 
 local_dir = "../data/"
 

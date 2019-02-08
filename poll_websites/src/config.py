@@ -1,4 +1,4 @@
-from poll_websites.src.sendMessage import get_data_directory
+from src.sendMessage import get_data_directory
 
 html_dir = get_data_directory() + "html_elements/"
 file_dir = get_data_directory() + "file_elements/"
