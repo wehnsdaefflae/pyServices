@@ -1,0 +1,11 @@
+{
+	"name": "jobs_kimeta",
+	"url": "https://www.kimeta.de/Home/SearchResult?cn=fpzvdW-HgjizWXIxz1L8uhggs9JD0zA6dtEWJviuX0bOZ6vQrA3eCQ5hrGKAoglgCb19XPKzJCYYzXRDpl_vlFpDffGghCT2783rNSxWC3WVHwToPacivwJ6lePcKu1ftv52YvlrYH7_uo-7tIG6Szt0od1Slzpg6bqYAKMY5iWn_hRcBnxPB8Ek4cYZX9ipHAfwmJG0MqQyE5fM1EY9i4hzut-Z0GJBJyzNoyru0o4",
+	"tag": "div",
+	"attribute_selections": {
+		"class": ["LeftJobOfferHighlightedCol"]
+	},
+	"attribute_exceptions": {},
+	"text_selections": [],
+	"text_exceptions": []
+}

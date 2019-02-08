@@ -1,0 +1,11 @@
+{
+	"name": "jobs_scads",
+	"url": "https://www.scads.de/en/about-us/open-positions",
+	"tag": "div",
+	"attribute_selections": {
+		"class": ["rt-container"]
+	},
+	"attribute_exceptions": {},
+	"text_selections": [],
+	"text_exceptions": []
+}

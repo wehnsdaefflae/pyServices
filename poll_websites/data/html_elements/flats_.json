@@ -1,0 +1,11 @@
+{
+	"name": "flats_immonet",
+	"url": "https://www.immonet.de/immobiliensuche/sel.do?pageoffset=1&listsize=26&objecttype=1&locationname=Volkmarsdorf%2C+Leipzig&acid=&actype=&district=10438&ajaxIsRadiusActive=true&sortby=19&suchart=2&radius=0&pcatmtypes=1_2&pCatMTypeStoragefield=&parentcat=1&marketingtype=2&fromprice=&toprice=400&fromarea=50&toarea=&fromplotarea=&toplotarea=&fromrooms=2&torooms=&objectcat=-1&feature=188&feature=57&wbs=-1&fromyear=&toyear=&fulltext=&absenden=Ergebnisse+anzeigen",
+	"tag": "div",
+	"attribute_selections": {
+		"class": ["col-xs-12 place-over-understitial sel-bg-gray-lighter"]
+	},
+	"attribute_exceptions": {},
+	"text_selections": [],
+	"text_exceptions": []
+}

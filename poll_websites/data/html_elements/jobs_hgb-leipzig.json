@@ -1,0 +1,11 @@
+{
+	"name": "jobs_hgb-leipzig",
+	"url": "https://www.hgb-leipzig.de/hochschule/stellen/",
+	"tag": "table",
+	"attribute_selections": {
+		"class": ["calendar-day-entry"]
+	},
+	"attribute_exceptions": {},
+	"text_selections": [],
+	"text_exceptions": []
+}

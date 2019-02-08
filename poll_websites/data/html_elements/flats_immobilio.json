@@ -1,0 +1,13 @@
+{
+	"name": "flats_immobilo",
+	"url": "https://www.immobilo.de/suchergebnisse?s=relevance&l=Leipzig-Volkmarsdorf&r=0km&usageType=private&t=all%3Arental&a=de.leipzig-volkmarsdorf&pf=&pt=400&rf=2&rt=0&sf=50&st=&f%5B%5D=fitted_kitchen&yf=&yt=&ff=&ft=&o=&u=",
+	"tag": "div",
+	"attribute_selections": {
+		"class": ["item-wrap js-serp-item"]
+	},
+	"attribute_exceptions": {
+		"class": ["additional-results"]
+	},
+	"text_selections": [],
+	"text_exceptions": []
+}

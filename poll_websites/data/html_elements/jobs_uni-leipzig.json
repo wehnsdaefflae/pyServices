@@ -1,0 +1,13 @@
+{
+	"name": "jobs_uni-leipzig",
+	"url": "https://www.uni-leipzig.de/universitaet/arbeiten-an-der-universitaet-leipzig/stellenausschreibungen/",
+	"tag": "a",
+	"attribute_selections": {
+		"data-parent": ["#accordion15584", "#accordion17264"]
+	},
+	"attribute_exceptions": {
+		
+	},
+	"text_selections": [],
+	"text_exceptions": []
+}

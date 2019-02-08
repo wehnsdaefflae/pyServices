@@ -1,0 +1,15 @@
+{
+	"name": "flats_wohnungsboerse",
+	"url": "https://www.wohnungsboerse.net/searches/index/marketing_type:miete/object_type:1/city:Leipzig/country:de/umkreiskm:0/districts:2600/maxprice:400/minsize:10/maxsize:600",
+	"tag": "div",
+	"attribute_selections": {
+		"itemtype": ["https://schema.org/Apartment https://schema.org/Offer"]
+	},
+	"attribute_exceptions": {
+		"class": ["altrow scoutbanner-estate search_result_entry"]
+	},
+	"text_selections": [],
+	"text_exceptions": []
+}
+
+

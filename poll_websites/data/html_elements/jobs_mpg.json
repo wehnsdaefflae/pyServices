@@ -1,0 +1,11 @@
+{
+	"name": "jobs_max-plank",
+	"url": "https://recruitingapp-5218.de.umantis.com/Jobs/All?Company5218=All&amp;Reset=G",
+	"tag": "td",
+	"attribute_selections": {
+		"class": ["tableaslist_cell"]
+	},
+	"attribute_exceptions": {},
+	"test_selections": [],
+	"text_exceptions": []
+}
