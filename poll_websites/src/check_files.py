@@ -7,7 +7,7 @@ import requests
 from src.config import file_dir, headers
 from src.logger import Logger
 
-local_dir = "../data/"
+local_dir = "data/"
 
 
 class TargetFile:

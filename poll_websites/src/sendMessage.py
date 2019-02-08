@@ -6,11 +6,11 @@ from src.logger import Logger
 
 
 def get_config_directory() -> str:
-    return "../config/"
+    return "config/"
 
 
 def get_data_directory() -> str:
-    return "../data/"
+    return "data/"
 
 
 def get_credentials() -> Tuple[str, str]:
