@@ -24,7 +24,7 @@ def get_credentials() -> Tuple[str, str]:
 
 def send_gmail(recipients: Iterable[str], subject: str, body: str, debug: bool = False):
     recipients_string = ", ".join(recipients)
-    Logger.log(f"Sending {subject:s} to {recipients_string:s}:\n{body:s}")
+    Logger.log("Sending {:s} to {:s}:\n{:s}".format(subject, recipients_string, body))
 
     if debug:
         return

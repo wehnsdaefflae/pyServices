@@ -37,17 +37,17 @@ def update_state_files(targets: Iterable[TargetFile]) -> List[str]:
         with open(tmp_file_path, mode="r") as file:
             temp_storage = json.load(file)
     else:
-        Logger.log(f"Initializing temp file storage.")
+        Logger.log("Initializing temp file storage.")
         temp_storage = dict()
 
     for target_file in targets:
-        Logger.log(f"Polling {target_file.url:s}...")
+        Logger.log("Polling {:s}...".format(target_file.url))
         response = requests.get(target_file.url, headers=headers)
         size = len(response.content)
 
         last_size = temp_storage.get(target_file.name)
         if last_size is None:
-            Logger.log(f"Initializing {target_file.name:s}...")
+            Logger.log("Initializing {:s}...".format(target_file.name))
 
         elif not last_size == size:
             text.append(target_file.url)

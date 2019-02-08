@@ -31,14 +31,14 @@ def repeat_indefinitely(function: Callable[[], None], minutes_interval: int):
         this_minute = now.minute
 
         while this_minute % minutes_interval != 0 or this_minute == last_second:
-            Logger.log(f"{now.strftime(time_format)}: waiting")
+            Logger.log("{:s}: waiting".format(now.strftime(time_format)))
             time.sleep(10)
             now = datetime.datetime.now()
             this_minute = now.minute
 
         last_second = this_minute
 
-        Logger.log(f"{now.strftime(time_format)}: executing function")
+        Logger.log("{:s}: executing function".format(now.strftime(time_format)))
 
         # noinspection PyBroadException
         try:

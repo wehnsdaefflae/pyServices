@@ -34,7 +34,7 @@ def get_html_targets() -> List[TargetElement]:
         full_path = os.path.join(html_dir, filename)
         each_target = TargetElement(full_path)
         if any(each_target.name == _t.name for _t in targets):
-            Logger.log(f"Double name {each_target.name:s} in file {filename:s}.")
+            Logger.log("Double name {:s} in file {:s}.".format(each_target.name, filename))
             continue
         targets.append(each_target)
     return targets
@@ -50,11 +50,11 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
         with open(tmp_file_path, mode="r") as file:
             temp_storage = json.load(file)
     else:
-        Logger.log(f"Initializing temp html storage.")
+        Logger.log("Initializing temp html storage.")
         temp_storage = dict()
 
     for target_element in targets:
-        Logger.log(f"Polling {target_element.name:s}...")
+        Logger.log("Polling {:s}...".format(target_element.name))
         request = urllib.request.Request(target_element.url, data=None, headers=headers)
 
         try:
@@ -74,7 +74,7 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
 
                         found = soup.find_all(target_element.tag, {each_selection_key: each_selection_value})
                         if found is None:
-                            Logger.log(f"URL {target_element.url:s} not responsive for tag {target_element.tag:s} and selection {each_selection_key:s}={each_selection_value:s}")
+                            Logger.log("URL {:s} not responsive for tag {:s} and selection {:s}={:s}".format(target_element.url, target_element.tag, each_selection_key, each_selection_value))
                             continue
 
                         selected = []
@@ -96,26 +96,26 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
                                 result_elements.append(each_element)
 
                     except HTTPError:
-                        Logger.log(f"problem polling {target_element.url:s} with tag {target_element.tag:s} and selection {each_selection_key:s}={each_selection_value:s}.")
+                        Logger.log("Problem polling {:s} with tag {:s} and selection {:s}={:s}.".format(target_element.url, target_element.tag, each_selection_key, each_selection_value))
 
             contained_texts = [each_result.get_text("\n", strip=True) for each_result in result_elements]
             hash_values = {hash(each_text): each_text for each_text in contained_texts}
             last_hash_values = temp_storage.get(target_element.name)
             if last_hash_values is None:
-                Logger.log(f"Initializing {target_element.name:s} with {len(hash_values):d} entries...")
+                Logger.log("Initializing {:s} with {:d} entries...".format(target_element.name, len(hash_values)))
 
             else:
                 for each_new_hash, each_content in hash_values.items():
                     if each_new_hash in last_hash_values:
                         continue
-                    Logger.log(f"New entry for {target_element.name:s}")
-                    message = f"<a href={target_element.url:s}>{target_element.name:s}</a>\n{each_content:s}\n"
+                    Logger.log("New entry for {:s}".format(target_element.name))
+                    message = "<a href={:s}>{:s}</a>\n{:s}\n".format(target_element.url, target_element.name, each_content)
                     text.append(message)
 
             temp_storage[target_element.name] = sorted(hash_values.keys())
 
         except HTTPError:
-            Logger.log(f"Target {target_element.name} unresponsive.")
+            Logger.log("Target {} unresponsive.".format(target_element.name))
 
     with open(tmp_file_path, mode="w") as file:
         json.dump(temp_storage, file, indent=2, sort_keys=True)

@@ -13,5 +13,5 @@ class Logger:
         now = datetime.datetime.now()
         if 0 < len(Logger.target_file):
             with open(Logger.target_file, mode="a") as file:
-                file.write(f"{now.strftime(time_format):s}:\t{text:s}\n")
+                file.write("{:s}:\t{:s}\n".format(now.strftime(time_format), text))
         print(text)
