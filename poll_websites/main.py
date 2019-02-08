@@ -5,7 +5,7 @@ from typing import Callable
 
 import unidecode
 
-from poll_websites.src.check_files import update_state_files, get_file_targets
+from poll_websites.src.check_files import get_file_targets, update_state_files
 from poll_websites.src.check_html import update_state_html, get_html_targets
 from poll_websites.src.config import receiver
 from poll_websites.src.logger import Logger, time_format
