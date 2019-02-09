@@ -1,10 +1,10 @@
 import json
 import os
 import urllib.request
-from typing import List, Iterable
+from typing import List, Iterable, Dict
 from urllib.error import HTTPError
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from src.config import html_dir, headers
 from src.logger import Logger
@@ -38,6 +38,18 @@ def get_html_targets() -> List[TargetElement]:
             continue
         targets.append(each_target)
     return targets
+
+
+def keep(soup_element: Tag,
+         selection_text: Iterable[str], deletion_text: Iterable[str]) -> bool:
+    text = soup_element.get_text(separator="\n", strip=True)
+    for each_selection in selection_text:
+        if each_selection in text:
+            return True
+    for each_deletion in deletion_text:
+        if each_deletion in text:
+            return False
+    return True
 
 
 def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
@@ -75,25 +87,25 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
                         found = soup.find_all(target_element.tag, {each_selection_key: each_selection_value})
                         if found is None:
                             Logger.log("URL {:s} not responsive for tag {:s} and selection {:s}={:s}".format(target_element.url, target_element.tag, each_selection_key, each_selection_value))
-                            continue
 
-                        selected = []
-                        for each_element in found:
-                            if 0 >= len(target_element.text_selections):
-                                selected.append(each_element)
-                                continue
-
-                            text = each_element.get_text("\n", strip=True)
-                            for each_text_selection in target_element.text_selections:
-                                if each_text_selection in text:
+                        else:
+                            selected = []
+                            for each_element in found:
+                                if 0 >= len(target_element.text_selections):
                                     selected.append(each_element)
 
-                        for each_element in selected:
-                            for each_text_exception in target_element.text_exceptions:
-                                if each_text_exception in text:
-                                    break
-                            else:
-                                result_elements.append(each_element)
+                                else:
+                                    text = each_element.get_text(separator="\n", strip=True)
+                                    for each_text_selection in target_element.text_selections:
+                                        if each_text_selection in text:
+                                            selected.append(each_element)
+
+                            for each_element in selected:
+                                for each_text_exception in target_element.text_exceptions:
+                                    if each_text_exception in text:
+                                        break
+                                else:
+                                    result_elements.append(each_element)
 
                     except HTTPError:
                         Logger.log("Problem polling {:s} with tag {:s} and selection {:s}={:s}.".format(target_element.url, target_element.tag, each_selection_key, each_selection_value))
