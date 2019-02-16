@@ -1,6 +1,6 @@
 {
 	"name": "flats_verivox",
-	"url": "https://www.verivox.de/immobilien/mieten-list/suche/minp-400-minr-2-mins-50-radius-1-ar-4471-at-1-pr-3-pr-6/o-sqm+a/",
+	"url": "https://www.verivox.de/immobilien/mieten-list/suche/at-1-ar-4471-minr-2-mins-50-pr-3-6-radius-0-maxp-400/",
 	"tag": "article",
 	"attribute_selections": {
 		"class": ["n_list_article"]
