@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
+    <content url="file://$MODULE_DIR$/check_online" />
+    <content url="file://$MODULE_DIR$/light_sensor" />
+    <content url="file://$MODULE_DIR$/new_wiiscale" />
+    <content url="file://$MODULE_DIR$/poll_websites">
       <excludeFolder url="file://$MODULE_DIR$/poll_websites/config" />
-      <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
+    <content url="file://$MODULE_DIR$/seedbox_service" />
+    <content url="file://$MODULE_DIR$/smart-scale" />
     <orderEntry type="jdk" jdkName="Python 3.5 (pyServices)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
