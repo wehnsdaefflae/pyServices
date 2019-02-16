@@ -40,8 +40,7 @@ def get_html_targets() -> List[TargetElement]:
     return targets
 
 
-def keep(soup_element: Tag,
-         selection_text: Iterable[str], deletion_text: Iterable[str]) -> bool:
+def keep(soup_element: Tag, selection_text: Iterable[str], deletion_text: Iterable[str]) -> bool:
     text = soup_element.get_text(separator="\n", strip=True)
     for each_selection in selection_text:
         if each_selection in text:
@@ -99,6 +98,7 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
                                     for each_text_selection in target_element.text_selections:
                                         if each_text_selection in text:
                                             selected.append(each_element)
+                                            break
 
                             for each_element in selected:
                                 for each_text_exception in target_element.text_exceptions:
