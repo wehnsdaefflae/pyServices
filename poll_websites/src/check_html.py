@@ -28,15 +28,19 @@ class TargetElement:
 
 def get_html_targets() -> List[TargetElement]:
     targets = []
+
     for filename in os.listdir(html_dir):
         if not filename.endswith(".json"):
             continue
+
         full_path = os.path.join(html_dir, filename)
         each_target = TargetElement(full_path)
         if any(each_target.name == _t.name for _t in targets):
             Logger.log("Double name {:s} in file {:s}.".format(each_target.name, filename))
             continue
+
         targets.append(each_target)
+
     return targets
 
 
@@ -52,7 +56,7 @@ def keep(soup_element: Tag, selection_text: Iterable[str], deletion_text: Iterab
 
 
 def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
-    text = []
+    text_list = []
     if not os.path.isdir(local_dir):
         os.makedirs(local_dir)
 
@@ -101,6 +105,8 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
                                             break
 
                             for each_element in selected:
+                                text = each_element.get_text(separator="\n", strip=True)
+
                                 for each_text_exception in target_element.text_exceptions:
                                     if each_text_exception in text:
                                         break
@@ -122,7 +128,7 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
                         continue
                     Logger.log("New entry for {:s}".format(target_element.name))
                     message = "<a href={:s}>{:s}</a>\n{:s}\n".format(target_element.url, target_element.name, each_content)
-                    text.append(message)
+                    text_list.append(message)
 
             temp_storage[target_element.name] = sorted(hash_values.keys())
 
@@ -132,4 +138,4 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
     with open(tmp_file_path, mode="w") as file:
         json.dump(temp_storage, file, indent=2, sort_keys=True)
 
-    return text
+    return text_list
