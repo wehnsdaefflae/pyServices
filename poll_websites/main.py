@@ -52,7 +52,7 @@ def repeat_indefinitely(function: Callable[[], None], minutes_interval: int):
 
 
 def main():
-    repeat_indefinitely(check_for_changes, 1)
+    repeat_indefinitely(check_for_changes, 5)
 
 
 if __name__ == "__main__":
