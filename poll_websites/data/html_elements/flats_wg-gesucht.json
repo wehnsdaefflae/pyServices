@@ -1,6 +1,6 @@
 {
 	"name": "flats_wg-gesucht",
-	"url": "https://www.wg-gesucht.de/wohnungen-in-Leipzig.77.2.1.0.html?offer_filter=1&noDeact=1&city_id=77&category=2&rent_type=2&sMin=50&rMax=400&ot%5B1809%5D=1809&rmMin=2&bal=1",
+	"url": "https://www.wg-gesucht.de/wohnungen-in-Leipzig.77.2.1.0.html?offer_filter=1&noDeact=1&city_id=77&category=2&rent_type=2&sMin=50&rMax=400&ot%5B1794%5D=1794&ot%5B1809%5D=1809&rmMin=2&bal=1",
 	"tag": "div",
 	"attribute_selections": {
 		"class": ["panel panel-default  list-details-ad-border offer_list_item"]

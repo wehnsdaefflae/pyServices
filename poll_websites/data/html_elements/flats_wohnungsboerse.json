@@ -1,6 +1,6 @@
 {
 	"name": "flats_wohnungsboerse",
-	"url": "https://www.wohnungsboerse.net/searches/index/marketing_type:miete/object_type:1/city:Leipzig/country:de/umkreiskm:0/districts:2600/maxprice:400/minsize:10/maxsize:600",
+	"url": "https://www.wohnungsboerse.net/searches/index/marketing_type:miete/object_type:1/city:Leipzig/country:de/umkreiskm:0/districts:2589;2600/maxprice:400/minsize:50/sort:Estate.importdate/direction:DESC",
 	"tag": "div",
 	"attribute_selections": {
 		"itemtype": ["https://schema.org/Apartment https://schema.org/Offer"]

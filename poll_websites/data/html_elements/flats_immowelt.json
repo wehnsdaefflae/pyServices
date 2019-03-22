@@ -1,6 +1,6 @@
 {
 	"name": "flats_immowelt",
-	"url": "https://www.immowelt.de/liste/leipzig-volkmarsdorf/wohnungen/mieten?lat=51.3459&lon=12.4146&sr=2&roomi=2&prima=400&wflmi=50&eqid=53%2C24%2C1001%2C-26&sort=relevanz",
+	"url": "https://www.immowelt.de/liste/leipzig-neustadt-neuschoenefeld/wohnungen/mieten?geoid=10814365000045&roomi=2&prima=400&wflmi=50&eqid=53%2C24%2C1001%2C-26&sort=relevanz",
 	"tag": "div",
 	"attribute_selections": {
 		"class": ["listitem clear relative js-listitem"]

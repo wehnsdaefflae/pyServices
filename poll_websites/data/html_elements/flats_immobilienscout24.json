@@ -1,6 +1,6 @@
 {
 	"name": "flats_immobilienscout24",
-	"url": "https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Sachsen/Leipzig/Volkmarsdorf/2,00-/50,00-/EURO--400,00/-/-/-/true/-/true/-/-/-/-/-/-/-/-/-/1-?enteredFrom=result_list#/",
+	"url": "https://www.immobilienscout24.de/Suche/S-T/Wohnung-Miete/Sachsen/Leipzig/Neustadt-Neuschoenefeld_Volkmarsdorf/2,00-/50,00-/EURO--400,00/-/-/-/-/-/true/-/-/-/-/-/-/-/-/-/1-?enteredFrom=result_list",
 	"tag": "li",
 	"attribute_selections": {
 	      "class": ["result-list__listing"]

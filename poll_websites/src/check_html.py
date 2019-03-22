@@ -3,6 +3,7 @@ import os
 import urllib.request
 from typing import List, Iterable, Dict
 from urllib.error import HTTPError
+import ssl
 
 from bs4 import BeautifulSoup, Tag
 
@@ -73,7 +74,8 @@ def update_state_html(targets: Iterable[TargetElement]) -> List[str]:
         request = urllib.request.Request(target_element.url, data=None, headers=headers)
 
         try:
-            page = urllib.request.urlopen(request)
+            context = ssl._create_unverified_context()
+            page = urllib.request.urlopen(request, context=context)
             html = page.read()
             soup = BeautifulSoup(html, "html.parser")
 
